@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 app.use(express.static(`${__dirname}/public`));
 
-app.get('/', (erq, res) => {
+app.get('/', (req, res) => {
     res.render('index', {
         stripePublishableKey: keys.stripePublishableKey
     });
