@@ -36,6 +36,8 @@ app.post('/charge', (req, res) => {
     .then(charge => res.render('success'));
 })
 
-const port_number = process.env.server.listen(process.env.PORT || 5000);
+const port = process.env.PORT || 5000;
 
-app.listen(port_number);
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`);
+});
