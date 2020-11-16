@@ -15,6 +15,8 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 app.use(express.static(`${__dirname}/public`));
 
+app.use("/assets", express.static(__dirname + '/assets'));
+
 app.get('/', (req, res) => {
     res.render('index', {
         stripePublishableKey: keys.stripePublishableKey
@@ -29,7 +31,7 @@ app.post('/charge', (req, res) => {
     })
     .then(customer => stripe.charges.create({
         amount,
-        description: 'Interview Prep Ebook',
+        description: 'Front-End Engineer Resume Template',
         currency: 'USD',
         customer: customer.id
     }))
