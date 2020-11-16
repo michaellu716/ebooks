@@ -31,7 +31,7 @@ app.post('/charge', (req, res) => {
     })
     .then(customer => stripe.charges.create({
         amount,
-        description: 'Front-End Engineer Resume Template',
+        description: 'Front-End Engineer Resume',
         currency: 'USD',
         customer: customer.id
     }))
